@@ -5,21 +5,25 @@ const investimentoRouter = Router()
 
 investimentoRouter.post('/investimentos', async (req: Request, res: Response) => {
     const { bolsa, valor } = req.body;
-    const date = new Date;
-    try{
-        const novoInvestimento = new Investimentos({
-            bolsa,
-            valor,
-            date
-        })
 
-        await novoInvestimento.save()
-        res.status(201).json(novoInvestimento)
+    try {
+        const investimentoExistente = await Investimentos.findOneAndUpdate(
+            { bolsa },
+            { 
+                $inc: { valor: valor }
+            },
+            { new: true, upsert: true, setDefaultsOnInsert: true }
+        );
 
+        if (!investimentoExistente.date) {
+            investimentoExistente.date = new Date();
+            await investimentoExistente.save();
+        }
 
-    } catch (error){
-        res.status(404).json({ message: 'nao encontrado rota de investimentos', error })
+        res.status(200).json(investimentoExistente);
+    } catch (error) {
+        res.status(404).json({ message: 'Erro ao cadastrar ou atualizar investimento', error });
     }
-})
+});
 
 export default investimentoRouter;
