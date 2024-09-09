@@ -14,13 +14,13 @@ const gastos = new Schema({
 })
 
 const investimentos = new Schema({
-    bolsa: {type: String, required:true},
+    bolsa: {type: String, required:true, unique:true},
     valor: {type: Number, required:true},
     date: {type: Date, required:true},
 })
 
 const carteiras = new Schema({
-    banco: {type: String, required: true},
+    banco: {type: String, required: true, unique: true},
     saldo: {type: Number, required:true},
 })
 
