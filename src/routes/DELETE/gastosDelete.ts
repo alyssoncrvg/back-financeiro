@@ -4,11 +4,11 @@ import { Gasto } from "../../db/model"; // Certifique-se de que o caminho está 
 const gastosRouterDelete = Router();
 
 // Rota DELETE para remover um gasto por ID
-gastosRouterDelete.delete('/gastos/:id', async (req: Request, res: Response) => {
-    const { id } = req.params;
+gastosRouterDelete.delete('/gastos/:descricao', async (req: Request, res: Response) => {
+    const { descricao } = req.params;
 
     try {
-        const gastoRemovido = await Gasto.findByIdAndDelete(id);
+        const gastoRemovido = await Gasto.findOneAndDelete({ descricao });
         if (!gastoRemovido) {
             return res.status(404).json({ message: 'Gasto não encontrado' });
         }

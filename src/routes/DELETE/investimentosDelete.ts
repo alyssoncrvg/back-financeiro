@@ -4,11 +4,11 @@ import { Investimentos } from "../../db/model"; // Certifique-se de que o caminh
 const investimentosRouterDelete = Router();
 
 // Rota DELETE para remover um investimento por ID
-investimentosRouterDelete.delete('/investimentos/:id', async (req: Request, res: Response) => {
-    const { id } = req.params;
+investimentosRouterDelete.delete('/investimentos/:bolsa', async (req: Request, res: Response) => {
+    const { bolsa } = req.params;
 
     try {
-        const investimentoRemovido = await Investimentos.findByIdAndDelete(id);
+        const investimentoRemovido = await Investimentos.findOneAndDelete({ bolsa });
         if (!investimentoRemovido) {
             return res.status(404).json({ message: 'Investimento não encontrado' });
         }

@@ -7,7 +7,7 @@ mongoose.connect(mongo_uri!)
 
 // COLOCAR DEPOIS UMA CHAVE ESTRAGEIRA QUE VEM DE REGISTRO
 const gastos = new Schema({
-    descricao: {type: String, required:true},
+    descricao: {type: String, required:true, unique:true},
     valor: {type: Number, required:true},
     categoria: {type:String, required:true},
     date: {type: Date, required:true},
