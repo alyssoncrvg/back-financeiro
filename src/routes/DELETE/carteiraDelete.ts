@@ -4,12 +4,12 @@ import { Carteiras } from "../../db/model"; // Certifique-se de que o caminho es
 const carteirasRouterDelete = Router();
 
 // Rota DELETE para remover uma carteira por ID
-carteirasRouterDelete.delete('/carteiras/:banco', async (req: Request, res: Response) => {
-    const { banco } = req.params;
-    console.log(banco)
+carteirasRouterDelete.delete('/carteiras/:id', async (req: Request, res: Response) => {
+    const { id } = req.params;
+    console.log(id)
 
     try {
-        const carteiraRemovida = await Carteiras.findOneAndDelete({ banco: banco });
+        const carteiraRemovida = await Carteiras.findByIdAndDelete(id);
         if (!carteiraRemovida) {
             return res.status(404).json({ message: 'Carteira não encontrada' });
         }
