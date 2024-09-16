@@ -8,7 +8,7 @@ export const carteirasRoutPath = Router().patch("/carteiras/:id", async (req: Re
 
     try{
         const carteiraAtualizada = await Carteiras.findByIdAndUpdate(
-            { id },
+            id ,
             { banco: novoBanco, saldo },
             { new: true, runValidators: true }
         );
