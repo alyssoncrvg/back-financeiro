@@ -4,7 +4,7 @@ import { Investimentos } from "../../db/model"; // Certifique-se de que o caminh
 const investimentosRouterDelete = Router();
 
 // Rota DELETE para remover um investimento por ID
-investimentosRouterDelete.delete('/investimentos/:id', async (req: Request, res: Response) => {
+investimentosRouterDelete.delete('  :id', async (req: Request, res: Response) => {
     const { id } = req.params;
 
     try {

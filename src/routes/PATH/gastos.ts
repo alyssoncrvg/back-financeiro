@@ -1,16 +1,16 @@
 import { Router, Request, Response } from "express";
 import { Gasto } from "../../db/model";
 
-export const gastoRouterPath = Router().patch('/gastos/:descricao', async (req: Request, res: Response) => {
-    const { descricao } = req.params;
+export const gastoRouterPath = Router().patch('/gastos/:id', async (req: Request, res: Response) => {
+    const { id } = req.params;
     const { novaDescricao, valor, categoria } = req.body;
 
-    console.log(descricao)
+    console.log(id)
 
     try{
 
-        const gastoAtualizada = await Gasto.findOneAndUpdate(
-            { descricao },
+        const gastoAtualizada = await Gasto.findByIdAndUpdate(
+            { id },
             { descricao: novaDescricao, valor, categoria },
             { new: true, runValidators: true }
         );

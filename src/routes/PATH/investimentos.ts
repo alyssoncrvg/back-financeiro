@@ -1,14 +1,14 @@
 import { Router, Request, Response } from "express";
 import { Investimentos } from "../../db/model";
 
-export const investimentoRouterPath = Router().patch('/investimentos/:bolsa', async (req:Request, res: Response) => {
-    const { bolsa } = req.params
+export const investimentoRouterPath = Router().patch('/investimentos/:id', async (req:Request, res: Response) => {
+    const { id } = req.params
     const { novaBolsa, valor } = req.body;
 
     try{
 
-        const investimentoAtualizada = await Investimentos.findOneAndUpdate(
-            { bolsa },
+        const investimentoAtualizada = await Investimentos.findByIdAndUpdate(
+            { id },
             { bolsa: novaBolsa, valor },
             { new: true, runValidators: true }
         );

@@ -2,13 +2,13 @@ import { Router, Request, Response } from "express";
 import { Carteiras } from "../../db/model";
 
 
-export const carteirasRoutPath = Router().patch("/carteiras/:banco", async (req: Request, res: Response) => {
-    const { banco } = req.params;
+export const carteirasRoutPath = Router().patch("/carteiras/:id", async (req: Request, res: Response) => {
+    const { id } = req.params;
     const { novoBanco, saldo } = req.body;
 
     try{
-        const carteiraAtualizada = await Carteiras.findOneAndUpdate(
-            { banco },
+        const carteiraAtualizada = await Carteiras.findByIdAndUpdate(
+            { id },
             { banco: novoBanco, saldo },
             { new: true, runValidators: true }
         );
