@@ -6,6 +6,8 @@ export const carteirasRoutPath = Router().patch("/carteiras/:id", async (req: Re
     const { id } = req.params;
     const { novoBanco, saldo } = req.body;
 
+    console.log(req.body)
+
     try{
         const carteiraAtualizada = await Carteiras.findByIdAndUpdate(
             id ,

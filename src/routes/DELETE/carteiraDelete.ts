@@ -6,7 +6,7 @@ const carteirasRouterDelete = Router();
 // Rota DELETE para remover uma carteira por ID
 carteirasRouterDelete.delete('/carteiras/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
-    console.log(id)
+    console.log('DELETE', id)
 
     try {
         const carteiraRemovida = await Carteiras.findByIdAndDelete(id);
