@@ -1,6 +1,6 @@
 const config = {
-    mongo_uri: process.env.MONGO_URI || 'mongodb://localhost:27017/financeiro',
-    porta: process.env.PORT || 3000,
+    mongo_uri: process.env.MONGO_URI || '',
+    porta: process.env.PORT || 0,
 }
 
 
