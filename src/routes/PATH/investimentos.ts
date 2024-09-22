@@ -8,7 +8,7 @@ export const investimentoRouterPath = Router().patch('/investimentos/:id', async
     try{
 
         const investimentoAtualizada = await Investimentos.findByIdAndUpdate(
-            { id },
+            id,
             { bolsa: novaBolsa, valor },
             { new: true, runValidators: true }
         );

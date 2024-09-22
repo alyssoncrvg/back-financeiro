@@ -6,12 +6,13 @@ export const gastoRouterPath = Router().patch('/gastos/:id', async (req: Request
     const { novaDescricao, valor, categoria } = req.body;
 
     console.log(id)
+    console.log(req.body)
 
     try{
 
         const gastoAtualizada = await Gasto.findByIdAndUpdate(
-            { id },
-            { descricao: novaDescricao, valor, categoria },
+            id,
+            { descricao: novaDescricao, valor: valor, categoria: categoria },
             { new: true, runValidators: true }
         );
 
@@ -19,7 +20,7 @@ export const gastoRouterPath = Router().patch('/gastos/:id', async (req: Request
             return res.status(404).json({ message: 'Carteira não encontrada' });
         }
 
-        res.status(201).json(gastoAtualizada)
+        res.status(200).json(gastoAtualizada)
 
     } catch (error){
         const err = error as Error;
