@@ -32,7 +32,27 @@ const metas = new Schema({
     valorGuardado: {type: Number, require:true},
 })
 
+const movimentacoes = new Schema({
+    mesAno: { 
+        type: String, 
+        required: true, 
+        unique: true, 
+        match: /^(0[1-9]|1[0-2])-\d{4}$/ // Validação para o formato MM-YYYY
+    },
+    entradas: { 
+        type: Number, 
+        required: true, 
+        default: 0 
+    },
+    saidas: { 
+        type: Number, 
+        required: true, 
+        default: 0 
+    },
+});
+
 export const Gasto = mongoose.model('Gastos', gastos); 
 export const Investimentos = mongoose.model('Investimentos', investimentos);
 export const Carteiras = mongoose.model('Carteiras', carteiras);
 export const Metas = mongoose.model('Metas', metas);
+export const Movimentacoes = mongoose.model('Movimentacoes', movimentacoes);

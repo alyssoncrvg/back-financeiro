@@ -17,6 +17,8 @@ import carteirasRouterGet from "./routes/GET/carteiras";
 import gastosRouterGet from "./routes/GET/gastos";
 import investimentosRouterGet from "./routes/GET/investmentos";
 import metasRouterGet from "./routes/GET/metas";
+import movimentacoesRouterGet from "./routes/GET/movimentacoes";
+import movimentacoesRouterPost from "./routes/POST/movimentacoes";
 
 const {porta} = config;
 
@@ -29,7 +31,8 @@ app.use(express.json())
 app.use('/api', gastosRouter, investimentoRouter, carteirasRouter, metasRouter,
      gastosRouterDelete, investimentosRouterDelete, carteirasRouterDelete,
      metasRouterDelete, carteirasRoutPath, gastoRouterPath, investimentoRouterPath, metasRouterPath,
-    carteirasRouterGet, gastosRouterGet, investimentosRouterGet, metasRouterGet);
+    carteirasRouterGet, gastosRouterGet, investimentosRouterGet, metasRouterGet,movimentacoesRouterGet,
+     movimentacoesRouterPost);
 
 app.listen(porta, () => {
     console.log(`SERVIDOR RODANDO NA PORTA ${porta}`)
