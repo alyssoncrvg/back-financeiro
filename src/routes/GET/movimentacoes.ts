@@ -6,7 +6,7 @@ const movimentacoesRouterGet = Router();
 movimentacoesRouterGet.get("/get/movimentacoes/:mesAno", async (req: Request, res: Response) => {
     try {
         const { mesAno } = req.params;
-
+        
         // Buscar a movimentação específica
         const movimentacao = await Movimentacoes.findOne({ mesAno: mesAno });
 

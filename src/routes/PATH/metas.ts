@@ -3,13 +3,13 @@ import { Metas } from "../../db/model";
 
 export const metasRouterPath = Router().patch('/metas/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
-    const { categoria, meta, titulo, previsao, valorGuardado } = req.body;
+    const { icon, meta, titulo, previsao, valorGuardado } = req.body;
 
     try {
 
         const investimentoAtualizada = await Metas.findByIdAndUpdate(
             id,
-            { categoria, meta, titulo, previsao, valorGuardado },
+            { icon, meta, titulo, previsao, valorGuardado },
             { new: true, runValidators: true }
         );
 

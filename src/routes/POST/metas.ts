@@ -2,12 +2,12 @@ import { Router, Request, Response } from "express";
 import { Metas } from "../../db/model";
 
 export const metasRouter = Router().post('/metas', async (req: Request, res:Response) => {
-    const { categoria, titulo, meta, previsao, valorGuardado } = req.body
+    const { icon, titulo, meta, previsao, valorGuardado } = req.body
 
     try{
 
         const cadastrarMeta = new Metas({
-            categoria,
+            icon,
             titulo,
             meta,
             previsao,

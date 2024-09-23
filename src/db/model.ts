@@ -25,7 +25,7 @@ const carteiras = new Schema({
 })
 
 const metas = new Schema({
-    categoria: {type:String, required:true},
+    icon: {type:String, required:true},
     titulo: {type:String, require:true},
     meta: {type: Number, required:true},
     previsao: {type:Date, require:true},

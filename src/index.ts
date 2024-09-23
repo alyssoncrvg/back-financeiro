@@ -19,6 +19,7 @@ import investimentosRouterGet from "./routes/GET/investmentos";
 import metasRouterGet from "./routes/GET/metas";
 import movimentacoesRouterGet from "./routes/GET/movimentacoes";
 import movimentacoesRouterPost from "./routes/POST/movimentacoes";
+import movimentacoesRouterGetAll from "./routes/GET/movimentacoesGetAll";
 
 const {porta} = config;
 
@@ -32,7 +33,7 @@ app.use('/api', gastosRouter, investimentoRouter, carteirasRouter, metasRouter,
      gastosRouterDelete, investimentosRouterDelete, carteirasRouterDelete,
      metasRouterDelete, carteirasRoutPath, gastoRouterPath, investimentoRouterPath, metasRouterPath,
     carteirasRouterGet, gastosRouterGet, investimentosRouterGet, metasRouterGet,movimentacoesRouterGet,
-     movimentacoesRouterPost);
+     movimentacoesRouterPost, movimentacoesRouterGetAll);
 
 app.listen(porta, () => {
     console.log(`SERVIDOR RODANDO NA PORTA ${porta}`)
