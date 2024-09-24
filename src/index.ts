@@ -29,6 +29,10 @@ const app: Application = express()
 
 app.use(express.json())
 
+app.get('/', (req, res) => {
+    res.status(200).send('Hello World');
+});
+
 app.use('/api', gastosRouter, investimentoRouter, carteirasRouter, metasRouter,
      gastosRouterDelete, investimentosRouterDelete, carteirasRouterDelete,
      metasRouterDelete, carteirasRoutPath, gastoRouterPath, investimentoRouterPath, metasRouterPath,
