@@ -39,6 +39,6 @@ app.use('/api', gastosRouter, investimentoRouter, carteirasRouter, metasRouter,
     carteirasRouterGet, gastosRouterGet, investimentosRouterGet, metasRouterGet,movimentacoesRouterGet,
      movimentacoesRouterPost, movimentacoesRouterGetAll);
 
-app.listen(porta, () => {
+app.listen(porta || 3000, () => {
     console.log(`SERVIDOR RODANDO NA PORTA ${porta}`)
 })
