@@ -3,7 +3,18 @@ import config from "../../config";
 
 const { mongo_uri } = config;
 
-mongoose.connect(mongo_uri!)
+const connectDB = async () => {
+    try {
+      await mongoose.connect(mongo_uri!);
+      console.log("Conexão com o MongoDB Atlas realizada com sucesso.");
+    } catch (error) {
+      console.error("Erro ao conectar ao MongoDB", error);
+      process.exit(1); // Para o processo em caso de falha
+    }
+  };
+
+  connectDB()
+  
 
 // COLOCAR DEPOIS UMA CHAVE ESTRAGEIRA QUE VEM DE REGISTRO
 const gastos = new Schema({
