@@ -11,7 +11,7 @@ movimentacoesRouterGet.get("/get/movimentacoes/:mesAno", async (req: Request, re
         const movimentacao = await Movimentacoes.findOne({ mesAno: mesAno });
 
         if (!movimentacao) {
-            return res.status(404).json({ entradas: 0, saidas: 0 });
+            return res.status(201).json({ entradas: 0, saidas: 0 });
         }
 
         return res.status(200).json({
